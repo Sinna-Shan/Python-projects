@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        #cal{
+            position: relative;
+            margin:0;
+            padding:0;
+            width:20%;
+            background-color:rgb(133, 133, 133);
+            height: auto;
+            left: 40%;
+            top: 100px;
+            border-radius: 10px;
+            overflow:hidden;
+
+        }
+        #result{
+            position: relative;
+            width:85%;
+            text-align: right;
+            background-color:rgb(59, 59, 59);
+            font-size: 36px;
+            color: white;
+            padding: 20px;
+            border: none;
+        }
+
+        h6{
+            margin: 5px;
+            font-family: monospace;
+            font-size:medium;
+        }
+        button{
+            width:100%;
+            height:50px;
+            font-weight: bolder;
+            font-size: 18;
+            border-radius: 30px;
+            border: none;
+            
+        }
+        table{
+            width: 100%;
+            height:100%;
+            margin-bottom: 5px;
+        }
+        
+        .function{
+            background-color:rgb(229, 255, 0);
+            border: none;
+            border-radius: 50px;
+            margin: 1px;
+            font-family: cursive;
+            font-size: 24;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="cal">
+        <h6>Calculator</h6>
+        <input id="result" type="text" placeholder="0">
+        <table>
+            <tr>
+                <td colspan="3"> <button id="C" class="function" onclick="clean()">C</button> </td>
+                <td> <button id="+" class="function" onclick="inputs('+')">+</button> </td>
+                
+            </tr>
+            <tr>
+                <td> <button id="7" onclick="inputs(7)">7</button> </td>
+                <td> <button id="8" onclick="inputs(8)">8</button> </td>
+                <td> <button id="9" onclick="inputs(9)">9</button> </td>
+                <td> <button id="-" class="function" onclick="inputs('-')">-</button> </td>
+            </tr>
+
+            <tr>
+                <td> <button id="4" onclick="inputs(4)">4</button> </td>
+                <td> <button id="5" onclick="inputs(5)">5</button> </td>
+                <td> <button id="6" onclick="inputs(6)">6</button> </td>
+                <td> <button id="*" class="function" onclick="inputs('*')">*</button> </td>
+            </tr>
+
+            <tr>
+                <td> <button id="1" onclick="inputs(1)">1</button> </td>
+                <td> <button id="2" onclick="inputs(2)">2</button> </td>
+                <td> <button id="3" onclick="inputs(3)">3</button> </td>
+                <td> <button id="/" class="function" onclick="inputs('/')">/</button> </td>
+            </tr>
+
+            <tr>
+                <td> <button id="." onclick="inputs('.')">.</button> </td>
+                <td> <button id="0" onclick="inputs(0)">0</button> </td>
+                <td colspan="2"> <button id="=" class="function" onclick="equal()">=</button> </td>
+                
+            </tr>
+        </table>
+        
+    </div>
+    
+
+
+
+
+    <script>
+        function inputs(num){
+            document.getElementById("result").value=document.getElementById("result").value+num
+        }
+
+        function clean(){
+            document.getElementById("result").value=" ";
+        }
+         
+        function equal(){
+            try{
+                document.getElementById("result").value=eval(document.getElementById("result").value);
+            }catch(err){
+                alert('Invalid');
+            }
+            
+        }
+        
+        
+    </script>
+</body>
+</html>
